@@ -109,3 +109,8 @@ googleAnalytics = ""
     twitter_domain  = ""
     twitter         = ""
     email           = ""
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"
