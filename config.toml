@@ -4,7 +4,7 @@ title = "AKnowledge"
 theme = "future-imperfect"
 preserveTaxonomyNames = true
 paginate = 3
-disqusShortname = "shortname"
+disqusShortname = ""
 googleAnalytics = ""
 
 [params]
