@@ -33,6 +33,11 @@ googleAnalytics = ""
 #    minifiedFilesCSS     = ["/css/main.min.css"]
 #    minifiedFilesJS      = ["/js/main.min.js"]
 
+    # Isso Params
+    issoApiUrl = "//comments.aknowledge.xyz/"
+    issoClientUrl = "//posativ.org/isso/api/js/embed.min.js"
+    issoRequireEmail = "true"
+
 # parms.intro will appear on the sidebar
 # This is optional, but it's suggested to use
 [params.intro]
