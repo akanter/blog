@@ -5,7 +5,7 @@ theme = "future-imperfect"
 preserveTaxonomyNames = true
 paginate = 3
 disqusShortname = ""
-googleAnalytics = ""
+googleAnalytics = "UA-78082886-1"
 
 [params]
     # Sets the meta tag description, usually reserved for the main page
