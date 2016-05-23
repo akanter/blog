@@ -12,10 +12,10 @@ title = "Giddyup: First Look at Pony Lang"
 type = "post"
 +++
 
-A friend of mine jokingly brought up the [Pony](ponylang) language in the context that he's resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended [BABSCon](http://www.babscon.com/), had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard [bronies](http://www.urbandictionary.com/define.php?term=Brony)? Is this a legitimate language or just horsing around? As it turns out, this is a **well thought out** language with central design ideas and, as far as I can tell, is not in any way related to My Little Pony. I'm going to take the rest of the post to give my $0.02 based on what I've read so far (the [Pony tutorial](ponytut) followed by a couple of [blog](post1) [posts](post2) by Bluish Coder/Chris Double) and what I've tinkered with.
+A friend of mine jokingly brought up the [Pony][ponylang] language in the context that he's resigned himself to learn the language because his manager (also a mutual friend) is a staunch pony-phile (e.g., attended [BABSCon][babscon], had a Rainbow Dash balloon floating above his desk at a previous job). At first I was intrigued: How many of the core designers are diehard [bronies][brony]? Is this a legitimate language or just horsing around? As it turns out, this is a **well thought out** language with central design ideas and, as far as I can tell, is not in any way related to My Little Pony. I'm going to take the rest of the post to give my $0.02 based on what I've read so far (the [Pony tutorial][ponytut] followed by a couple of [blog][post1] [posts][post2] by Bluish Coder/Chris Double) and what I've tinkered with.
 
 ### Overview
-What do I mean by a "well thought out language"? [PonyLang](ponylang), from its inception, was designed to emphasize (in order of importance)
+What do I mean by a "well thought out language"? [PonyLang][ponylang], from its inception, was designed to emphasize (in order of importance)
 
 - **correctness**
 - performance
@@ -25,7 +25,7 @@ What do I mean by a "well thought out language"? [PonyLang](ponylang), from its 
 
 Almost everything that I've read so far about Pony has pointed back to these principles (together called the "get-stuff-done" approach) and used this ordering to determine how to proceed on an issue. How should race conditions be handled? Well, a race condition is a form of "incorrectness" so eliminating them entirely became part of the plan. Ahead of time compilation? That should help with correctness and performance at the expense portability and scripting capabilities among others (neither of which you'll note are on the list).
 
-What else can be said about the language? It's object-oriented, [actor-model](actor-model-wiki) (of Erlang fame), open-source, compiled, and very young (v0.1.0 relased in April 2015, currently at v0.2.1). There are a few [academic papers](papers) written about it, with more coming I'd imagine.
+What else can be said about the language? It's object-oriented, [actor-model][actor-model-wiki] (of Erlang fame), open-source, compiled, and very young (v0.1.0 relased in April 2015, currently at v0.2.1). There are a few [academic papers][papers] written about it, with more coming I'd imagine.
 
 {{< figure src="/img/posts/ponylang_mascot.jpeg" caption="The brand new (May 13, 2016) mascot. His name is Main." class="align-center" attr="@ponylang" attrlink="https://twitter.com/SeanTAllen/status/731129619143925760">}}
 
@@ -34,7 +34,7 @@ What else can be said about the language? It's object-oriented, [actor-model](ac
 You'll notice I emphasized "correctness" and "simplicity". I did this because of all of these guiding principles, these two are clearly the conceptual parents of another less specified, but wonderfully pervasive, doctrine: "save developers from shooting themselves in the foot". I'll call any characteristics born of this concept "DevSafe".
 
 #### No Null
-Yeah, they got rid of Tony Hoare's famed [billion dollar mistake](hoare-quote) called "null". Don't worry, there is still the primitive type `None`, but you'll never see it when you're not expecting it.
+Yeah, they got rid of Tony Hoare's famed [billion dollar mistake][hoare-quote] called "null". Don't worry, there is still the primitive type `None`, but you'll never see it when you're not expecting it.
 
 ```
 var x: String // x will only ever be a String. If there is a part of the code that could potentially assign x to be None, the compiler will spit out an error
@@ -45,7 +45,7 @@ var y: (String | None) // y can be a String OR None
 DevSafe!
 
 #### No global variables
-Remember that [fatal acceleration bug](http://www.safetyresearch.net/blog/articles/toyota-unintended-acceleration-and-big-bowl-%E2%80%9Cspaghetti%E2%80%9D-code) Toyota had a couple of years ago? Well apparently they had 10,000 global variables meaning potentially 10,000 different ways for any part of the code to manipulate the rest of the system referencing those variables. Yuck.
+Remember that [fatal acceleration bug][toyota-bug] Toyota had a couple of years ago? Well apparently they had 10,000 global variables meaning potentially 10,000 different ways for any part of the code to manipulate the rest of the system referencing those variables. Yuck.
 
 DevSafe!
 
@@ -82,7 +82,7 @@ DevSafe!
 ### Other interesting bits
 
 #### Capabilities
-[Capability calculus](http://tutorial.ponylang.org/capabilities/index.html) is really, really sweet. It is unlike anything I've ever seen built-in to any other language. In a nutshell, it is an annotation (explicit or implicit) that exists for every variable and parameter determining how it can be safely accessed, especially concerning itself across threads and between function calls. There are a total of 6 states and how each interacts with another or upgrades/downgrades is very clearly defined. Furthermore, **this is all checked at compile time**, so you'll know if you screwed up your data access across threads before you ever run your code! I love how clear it is to show whether a function even has the ability to mutate its arguments. It's fascinating that you can pass opaque pointers across actors (threads) and not worry about race conditions. It is a tremendous system that a LOT of thought went into and absolutely deserves its own post. I know some folks argue that the cognitive overhead is going to be too high for this, but 1) any new programming concept has an initially high cognitive overhead, but often you get used to it (promises, I'm looking at you) 2) the compiler-time checking creates a short feedback loops to help you learn the system and ensures you're using them properly.
+[Capability calculus][capabilities] is really, really sweet. It is unlike anything I've ever seen built-in to any other language. In a nutshell, it is an annotation (explicit or implicit) that exists for every variable and parameter determining how it can be safely accessed, especially concerning itself across threads and between function calls. There are a total of 6 states and how each interacts with another or upgrades/downgrades is very clearly defined. Furthermore, **this is all checked at compile time**, so you'll know if you screwed up your data access across threads before you ever run your code! I love how clear it is to show whether a function even has the ability to mutate its arguments. It's fascinating that you can pass opaque pointers across actors (threads) and not worry about race conditions. It is a tremendous system that a LOT of thought went into and absolutely deserves its own post. I know some folks argue that the cognitive overhead is going to be too high for this, but 1) any new programming concept has an initially high cognitive overhead, but often you get used to it (promises, I'm looking at you) 2) the compiler-time checking creates a short feedback loops to help you learn the system and ensures you're using them properly.
 
 
 #### Runtime Type Information
@@ -97,7 +97,7 @@ fun interestingFunction(unionVar: (U32 | CustomType | None)): String =>
   end
 ```
 
-It's interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether `x is None`). I'm guessing this will change in a future release, but as of right now it's sitting in the [issue backlog](https://github.com/ponylang/ponyc/issues/87).
+It's interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether `x is None`). I'm guessing this will change in a future release, but as of right now it's sitting in the [issue backlog][https://github.com/ponylang/ponyc/issues/87].
 - Everything in the language is an expression. The result of an `if` (and most control structures for that matter) block is the last expression within the block or `None` if it doesn't execute. The result of a `break` is `None` unless it is followed by an expression. You get the idea.
 
 #### Destructo-Read
@@ -136,8 +136,12 @@ Pony looks to be a serious contender to help "solve" concurrent programming. I p
 
 [ponylang]: http://www.ponylang.org/
 [ponytut]: http://http://tutorial.ponylang.org/
+[babscon]: http://www.babscon.com/
+[brony]: http://www.urbandictionary.com/define.php?term=Brony
 [post1]: https://bluishcoder.co.nz/2015/11/04/a-quick-look-at-pony.html
 [post2]: https://bluishcoder.co.nz/2016/05/11/exploring-actors-in-pony.html
 [hoar-quote]: https://www.lucidchart.com/techblog/2015/08/31/the-worst-mistake-of-computer-science/
+[toyota-bug]: http://www.safetyresearch.net/blog/articles/toyota-unintended-acceleration-and-big-bowl-%E2%80%9Cspaghetti%E2%80%9D-code
+[capabilities]: http://tutorial.ponylang.org/capabilities/index.html
 [actor-model-wiki]: https://en.wikipedia.org/wiki/Actor_model/
 [papers]: https://github.com/ponylang/ponylang.github.io/tree/master/papers/
