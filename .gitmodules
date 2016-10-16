@@ -1,6 +1,3 @@
 [submodule "themes/future-imperfect"]
 	path = themes/future-imperfect
 	url = https://github.com/akanter/hugo-future-imperfect.git
-[submodule "public"]
-	path = public
-	url = git@github.com:akanter/akanter.github.io.git
