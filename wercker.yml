@@ -16,8 +16,8 @@ build:
         name: initialize git submodules
         code: |
             git submodule update --init --recursive
-    - arjen/hugo-build@1.9.2:
-        version: "0.15"
+    - arjen/hugo-build@1.13.1:
+        version: "0.17"
         theme: future-imperfect
         flags: --buildDrafts=false
 deploy:
