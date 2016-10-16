@@ -35,7 +35,7 @@ googleAnalytics = "UA-78082886-1"
 
     # Isso Params
     issoApiUrl = "//comments.aknowledge.xyz/"
-    issoClientUrl = "/js/isso/embed.min.js"
+    issoClientUrl = "//comments.aknowledge.xyz/js/embed.min.js"
     issoRequireEmail = "true"
 
 # parms.intro will appear on the sidebar
