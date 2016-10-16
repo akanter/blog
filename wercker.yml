@@ -26,6 +26,6 @@ deploy:
         packages: git ssh-client
     - lukevivier/gh-pages@0.2.1:
         token: $GIT_TOKEN
-        domain: akanter.github.io
+        domain: aknowledge.xyz
         basedir: public
         repo: akanter/akanter.github.io
