@@ -32,6 +32,7 @@ googleAnalytics = "UA-78082886-1"
     # This is just an additional option if you wish to use this
 #    minifiedFilesCSS     = ["/css/main.min.css"]
 #    minifiedFilesJS      = ["/js/main.min.js"]
+	customCSS = ["default", "/css/custom.css"]
 
     # Isso Params
     issoApiUrl = "//comments.aknowledge.xyz/"

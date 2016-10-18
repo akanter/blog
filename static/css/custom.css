@@ -1,0 +1,17 @@
+	/*
+	Copied from https://github.com/revolunet/sublimetext-markdown-preview/pull/273/commits/cb1f4e12d32267a40816ca796255f29703fc2afd
+	which is designed to replicate what it looks like on Github Pages
+	*/
+    kbd {
+      display: inline-block;
+      padding: 3px 5px;
+      font-size: 11px;
+      line-height: 10px;
+      color: #555;
+      vertical-align: middle;
+      background-color: #fcfcfc;
+      border: solid 1px #ccc;
+      border-bottom-color: #bbb;
+      border-radius: 3px;
+      box-shadow: inset 0 -1px 0 #bbb;
+    }

@@ -1,0 +1,40 @@
+<article class="post">
+    {{ .Render "header" }}
+
+    <section id="social-share">
+        <ul class="icons">
+            {{ partial "share-links" . }}
+        </ul>
+    </section>
+    {{ .Render "featured" }}
+    <div id="content">
+        {{ .Content }}
+    </div>
+
+    <footer>
+        {{ .Render "footer-category" }}
+    </footer>
+</article>
+{{ .Render "prev-next" }}
+
+{{ if ne .Site.DisqusShortname "" }}
+    {{ if not (in (printf "%#v" .Site.BaseURL) "localhost") }}
+        <article class="post">
+            {{ template "_internal/disqus.html" . }}
+        </article>
+    {{ end }}
+{{ end }}
+
+
+{{ if ne .Site.Params.issoClientUrl "" }}
+    <!-- Isso Comments -->
+    <div id="isso_thread_div">
+    <script
+        {{ if ne .Site.Params.issoApiUrl "" }} data-isso={{.Site.Params.issoApiUrl}} {{ end }}
+        src={{.Site.Params.issoClientUrl}}
+        data-isso-require-email={{.Site.Params.issoRequireEmail}} >
+    </script>
+    <section id="isso-thread"></section>
+    <noscript>Please enable JavaScript to view the <a href="http://posativ.org/isso/">comments powered by Isso.</a></noscript>
+    </div>
+{{ end }}
