@@ -82,7 +82,7 @@ DevSafe!
 ### Other interesting bits
 
 #### Capabilities
-[Capability calculus][capabilities] is really, really sweet. It is unlike anything I've ever seen built-in to any other language. In a nutshell, it is an annotation (explicit or implicit) that exists for every variable and parameter determining how it can be safely accessed, especially concerning itself across threads and between function calls. There are a total of 6 states and how each interacts with another or upgrades/downgrades is very clearly defined. Furthermore, **this is all checked at compile time**, so you'll know if you screwed up your data access across threads before you ever run your code! I love how clear it is to show whether a function even has the ability to mutate its arguments. It's fascinating that you can pass opaque pointers across actors (threads) and not worry about race conditions. It is a tremendous system that a LOT of thought went into and absolutely deserves its own post. I know some folks argue that the cognitive overhead is going to be too high for this, but 1) any new programming concept has an initially high cognitive overhead, but often you get used to it (promises, I'm looking at you) 2) the compiler-time checking creates a short feedback loops to help you learn the system and ensures you're using them properly.
+[Capability calculus][capabilities] is really, really sweet. It is unlike anything I've ever seen built-in to any other language. In a nutshell, it is an annotation (explicit or implicit) that exists for every variable and parameter determining how it can be safely accessed, especially concerning itself across threads and between function calls. There are a total of 6 states and how each interacts with another or upgrades/downgrades is very clearly defined. Furthermore, **this is all checked at compile time**, so you'll know if you screwed up your data access across threads before you ever run your code! I love how clear it is to show whether a function even has the ability to mutate its arguments. It's fascinating that you can pass opaque pointers across actors (threads) and not worry about race conditions. It is a tremendous system that a LOT of thought went into and absolutely deserves its own post. I know some folks argue that the cognitive overhead is going to be too high for this, but 1) any new programming concept has an initially high cognitive overhead, but often you get used to it (promises, I'm looking at you) 2) the compiler-time checking creates short feedback loops to help you learn the system and ensures you're using them properly.
 
 
 #### Runtime Type Information
@@ -140,8 +140,8 @@ Pony looks to be a serious contender to help "solve" concurrent programming. I p
 [brony]: http://www.urbandictionary.com/define.php?term=Brony
 [post1]: https://bluishcoder.co.nz/2015/11/04/a-quick-look-at-pony.html
 [post2]: https://bluishcoder.co.nz/2016/05/11/exploring-actors-in-pony.html
-[hoar-quote]: https://www.lucidchart.com/techblog/2015/08/31/the-worst-mistake-of-computer-science/
+[hoare-quote]: https://www.lucidchart.com/techblog/2015/08/31/the-worst-mistake-of-computer-science/
 [toyota-bug]: http://www.safetyresearch.net/blog/articles/toyota-unintended-acceleration-and-big-bowl-%E2%80%9Cspaghetti%E2%80%9D-code
 [capabilities]: http://tutorial.ponylang.org/capabilities/index.html
-[actor-model-wiki]: https://en.wikipedia.org/wiki/Actor_model/
+[actor-model-wiki]: https://en.wikipedia.org/wiki/Actor_model
 [papers]: https://github.com/ponylang/ponylang.github.io/tree/master/papers/

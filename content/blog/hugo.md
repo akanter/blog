@@ -63,7 +63,7 @@ Despite the clear preference for TOML throughout the Hugo [documentation](https:
 Each post is generally written in Markdown, rendered by the [Blackfriday](https://github.com/russross/blackfriday) engine. You _can_ use html, rst, mmark, or asciidoc but I see no reason to use those for the average post. While this isn't particularly novel among the younger similar products, it was important enough of a feature for me to point out here.
 
 ### Themes
-Hugo has a fairly clever theme system which allows you to switch between themes of your website pretty easily. Each theme may include its own configuration, layouts, and datatypes. Generally you `git clone` the theme into the `themes` directory and specify it by name either at build time or in the configuration.
+Hugo has a clever theme system which allows you to switch between themes of your website pretty easily. Each theme may include its own configuration, layouts, and datatypes. Generally you `git clone` the theme into the `themes` directory and specify it by name either at build time or in the configuration.
 
 While theme aspects aren't likely to change very frequently for a blog such as this, this system makes it very easy to both share and overhaul presentation aspects without needing to change the underlying data (hopefully).
 
