@@ -30,10 +30,12 @@ There are a variety of other options, but I chose ClipMenu because it is free, l
 {{< figure src="/img/posts/sizeup_sample.png" class="align-center" >}}
 Quite simply, using your mouse to drag the corners of your application windows around to resize them is a really crappy experience. Sure, you have a lot of control, but generally I'm more concerned with having my windows as large as possible while in the configuration I want with the rest of my open applications. SizeUp offers an alternative by offering keyboard shortcuts to handle most of the tasks I care about. This includes moving windows to different screen regions (top, bottom, left, or right halves; the four corners; center; full-screen), between different monitors, and across spaces. Not only is this a lot faster, but it's a lot more ergonomic since you're not using your mouse. It's worth every penny of its $13.
 
-### Cross-platform document transfer: [DropBox][DropBox], [Tresorit][Tresorit]
+### Cross-platform document transfer: [DropBox][DropBox], [Tresorit][Tresorit], [Sync][Sync]
 Need to send your boarding pass or concert tickets to your phone? Print to PDF and save it in your DropBox folder and your phone can pick it up later. I wouldn't recommend this for large file transfers since you'll be sending data all the way up to the cloud and then back down to your other device, but for small files (or if time and data limits aren't issues) it's fantastic.
 
-There are a variety of options here that are basically the same and are equally multiplatform so feel free to look at [Google Drive][GoogleDrive], [OneDrive][OneDrive], etc. [Tresorit][Tresorit] is a little different in that it is marketed specifically for the security spooks who want end-to-end encryption on their files. I personally use a combination of [DropBox][DropBox] and [Tresorit][Tresorit] for documents about whose security I care more about, such as my KeePass database.
+It's worth noting that there are a variety of options here that are basically the same and are very nearly equally multiplatform so feel free to look at [Google Drive][GoogleDrive], [OneDrive][OneDrive], [pCloud][pCloud] (which is offering users **10GB** of free space), and [Sync][Sync], etc. [Tresorit][Tresorit] and [Sync][Sync] are a little different in that they are marketed specifically for the security spooks who want end-to-end encryption on their files. [pCloud][pCloud] also has options for this but you need to pay for them.
+
+I personally use a combination of [DropBox][DropBox] for general use and [Tresorit][Tresorit] for documents about whose security I care more about, such as my [KeePass database][keepass-blog]. Tresorit is unfortunately no longer really offering free plans, so I would recommend you check out [Sync][Sync] instead.
 
 ### Password manager: [KeePassX][KeePassX], [1Password][1Password], [LastPass][LastPass]
 I wrote a [whole blog post][keepass-blog] about this, but the short of it is that I have little interest in memorizing an increasingly large numbers of distinct secure passwords to keep myself safe should there be any security breaches. I chose [KeePass][KeePass] as the open source protocol, with [KeePassX][KeePassX] being the best client for OS X and [Keepass2Android][KP2A] ([Play Store][KP2A-Store] for Android. If you're interested in setting up KeePass, check out my [post][keepass-blog] for more details including how to get it set up auto-fill in your browser. [1Password][1Password] and [LastPass][LastPass] are some industry leaders if you want to pay for them instead.
@@ -68,6 +70,8 @@ What am I missing? Share your favorites in the comments below!
 [GoogleDrive]: https://drive.google.com/
 [OneDrive]: https://onedrive.live.com
 [Tresorit]: https://tresorit.com/
+[Sync]: https://www.sync.com
+[pCloud]: https://www.pcloud.com
 [KeePassX]: https://www.keepassx.org/
 [LastPass]: https://lastpass.com/
 [1Password]: https://1password.com/
