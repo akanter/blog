@@ -86,7 +86,7 @@ DevSafe!
 
 
 #### Runtime Type Information
-In many languages, runtime type information can be expensive or impossible to retrieve (e.g., Java has type erasure) and so it is generally avoided whenever possible. Not so in Pony! Type information is available at runtime and doing such a comparison at runtime is "generally just a pointer comparison" (their words, not mine - I haven't tested it to look at the LLVM code). This means you can actually have `match` statements (called `switch` in many other languages) based on the type of the variable. 
+In many languages, runtime type information can be expensive or impossible to retrieve (e.g., Java has type erasure) and so it is generally avoided whenever possible. Not so in Pony! Type information is available at runtime and doing such a comparison at runtime is "generally just a pointer comparison" (their words, not mine - I haven't tested it to look at the LLVM code). This means you can actually have `match` statements (called `switch` in many other languages) based on the type of the variable.
 
 ```
 fun interestingFunction(unionVar: (U32 | CustomType | None)): String =>
@@ -97,7 +97,7 @@ fun interestingFunction(unionVar: (U32 | CustomType | None)): String =>
   end
 ```
 
-It's interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether `x is None`). I'm guessing this will change in a future release, but as of right now it's sitting in the [issue backlog][https://github.com/ponylang/ponyc/issues/87].
+It's interesting that while this type of checking can be done, reflection is not currently supported (though you can check whether `x is None`). I'm guessing this will change in a future release, but as of right now it's sitting in the [issue backlog][reflection-issue].
 - Everything in the language is an expression. The result of an `if` (and most control structures for that matter) block is the last expression within the block or `None` if it doesn't execute. The result of a `break` is `None` unless it is followed by an expression. You get the idea.
 
 #### Destructo-Read
@@ -142,6 +142,7 @@ Pony looks to be a serious contender to help "solve" concurrent programming. I p
 [post2]: https://bluishcoder.co.nz/2016/05/11/exploring-actors-in-pony.html
 [hoare-quote]: https://www.lucidchart.com/techblog/2015/08/31/the-worst-mistake-of-computer-science/
 [toyota-bug]: http://www.safetyresearch.net/blog/articles/toyota-unintended-acceleration-and-big-bowl-%E2%80%9Cspaghetti%E2%80%9D-code
+[reflection-issue]: https://github.com/ponylang/ponyc/issues/87
 [capabilities]: http://tutorial.ponylang.org/capabilities/index.html
 [actor-model-wiki]: https://en.wikipedia.org/wiki/Actor_model
 [papers]: https://github.com/ponylang/ponylang.github.io/tree/master/papers/
